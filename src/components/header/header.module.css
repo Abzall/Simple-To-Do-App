@@ -1,16 +1,16 @@
 .header {
-    background: #8d8d8d;
+    background: #0850678f;
     display: flex;
     justify-content: center;
     align-items: center;
-    height: 200px;
+    height: 300px;
     position: relative;
 }
 .taskForm {
     position: absolute;
     height: 54px;
     bottom: -27px;
-    width: 100%;
+    width: 20%;
     min-width: 736px;
     display: flex;
     gap: 8px;
@@ -20,15 +20,16 @@
     height: 100%;
     flex: 1;
     color: #fff;
-    background: #262626;
-    border: 1px solid #8d8d8d;
+    background: rgba(26, 65, 88);
+    border: 1px solid #a6a6b9;
     border-radius: 8px;
     padding: 0 16px;
     font-size: 16px;
     outline: none;
+    margin-right: 10px;
 }
 .taskForm input::placeholder {
-    color: #808080;
+    color: #8e9fad;
 }
 .taskForm button {
     height: 100%;

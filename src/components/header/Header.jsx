@@ -19,7 +19,7 @@ const Header = ({addTask}) => {
     <header className={styles.header}>
         <h1>Todo List</h1>
         <form className={styles.taskForm} onSubmit={handleSubmit}>
-            <input type="text" onChange={ChangeInput} value={input}/>
+            <input type="text" onChange={ChangeInput} value={input} placeholder='Type here...'/>
             <button>Create</button>
         </form>
     </header>
