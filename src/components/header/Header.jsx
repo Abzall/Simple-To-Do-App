@@ -27,7 +27,7 @@ const Header = ({ addTask }) => {
         />
         <button>
           Create
-          <IoAddOutline size={25} />
+          <IoAddOutline size={30} />
         </button>
       </form>
     </header>

@@ -1,5 +1,6 @@
 .task {
-    width: 100%;
+    width: 50%;
+    height: inherit;
     background: #262626;
     border: 1px solid #333333;
     padding: 16px;
@@ -8,6 +9,7 @@
     align-items: center;
     justify-content: space-between;
     gap: 12px;
+    transform: translateX(50%);
 }
 .task p {
     font-size: 14px;
@@ -40,4 +42,8 @@ p.textCompleted {
     background: none;
     border: none;
     color: #888888;
+    transition: .5s;
+}
+.deleteButton:hover {
+    color: rgb(173, 55, 55);
 }

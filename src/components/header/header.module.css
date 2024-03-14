@@ -5,6 +5,7 @@
     align-items: center;
     height: 300px;
     position: relative;
+    font-size: 30px;
 }
 .taskForm {
     position: absolute;
@@ -21,7 +22,7 @@
     flex: 1;
     color: #fff;
     background: rgba(26, 65, 88);
-    border: 1px solid #a6a6b9;
+    border: 1px solid #171732;
     border-radius: 8px;
     padding: 0 16px;
     font-size: 16px;
@@ -30,6 +31,7 @@
 }
 .taskForm input::placeholder {
     color: #8e9fad;
+    font-size: 18px;
 }
 .taskForm button {
     height: 100%;
@@ -42,5 +44,5 @@
     align-items: center;
     gap: 6px;
     font-weight: 700;
-    font-size: 16px;
+    font-size: 18px;
 }

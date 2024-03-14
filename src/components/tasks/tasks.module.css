@@ -2,8 +2,10 @@
     width: 100%;
     min-width: 736px;
     margin: 0 auto;
-    margin-top: 90px;
+    margin-top: 50px;
     padding: 0 1rem;
+    display: flex;
+    flex-direction: column;
 }
 .header {
     display: flex;
@@ -14,15 +16,16 @@
 .header > div {
     display: flex;
     align-items: center;
-    gap: 8px;
+    gap: 14px;
 }
 .header p {
     color: #4ea8de;
-    font-size: 14px;
+    font-size: 20px;
     font-weight: 700;
 }
 .textPurple {
     color: #8284fa !important;
+    margin-left: 30px;
 }
 .header span {
     background: #333333;
@@ -34,5 +37,5 @@
     display: flex;
     flex-direction: column;
     gap: 12px;
-    height: auto;
+    height: 55px;
 }
