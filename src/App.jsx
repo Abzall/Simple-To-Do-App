@@ -18,9 +18,9 @@ const App = () => {
     getLocal();
   }, []);
 
-  const saveLocal = (newItem) => {
-    setTasks(newItem);
-    localStorage.setItem(keyLocal, JSON.stringify(newItem));
+  const saveLocal = (newValue) => {
+    setTasks(newValue);
+    localStorage.setItem(keyLocal, JSON.stringify(newValue));
   };
 
   const addTask = (value) => {
