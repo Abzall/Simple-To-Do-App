@@ -5,8 +5,10 @@ import Tasks from "./components/tasks/Tasks";
 const App = () => {
   const [tasks, setTasks] = useState([]);
 
+  const keyLocal = "itemLocal"
+
   const getLocal = () => {
-    const saved = localStorage.getItem("itemLocal");
+    const saved = localStorage.getItem(keyLocal);
     if (saved) {
       setTasks(JSON.parse(saved));
     }
@@ -18,7 +20,7 @@ const App = () => {
 
   const saveLocal = (newItem) => {
     setTasks(newItem);
-    localStorage.setItem("itemLocal", JSON.stringify(newItem));
+    localStorage.setItem(keyLocal, JSON.stringify(newItem));
   };
 
   const addTask = (value) => {
