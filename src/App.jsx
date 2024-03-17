@@ -21,12 +21,12 @@ const App = () => {
     localStorage.setItem("itemLocal", JSON.stringify(newItem));
   };
 
-  const addTask = (input) => {
-    if (input !== "") {
+  const addTask = (value) => {
+    if (value !== "") {
       saveLocal([
         {
           id: Math.random(),
-          value: input,
+          value: value,
           isComplete: false,
         },
         ...tasks,
