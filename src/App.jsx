@@ -5,7 +5,8 @@ import Tasks from "./components/tasks/Tasks";
 const App = () => {
   const [tasks, setTasks] = useState([]);
 
-  const keyLocal = "itemLocal"
+  const keyLocal = "items"
+  // itemLocal
 
   const getLocal = () => {
     const saved = localStorage.getItem(keyLocal);
