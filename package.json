@@ -2,7 +2,7 @@
   "name": "todo_cool_design1",
   "private": true,
   "version": "0.0.0",
-  "homepage": "https://Abzall.github.io/Simple-ToDo-App",
+  "homepage": "https://Abzall.github.io/Simple-To-Do-App",
   "type": "module",
   "scripts": {
     "predeploy": "npm run build",
