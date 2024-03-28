@@ -8,8 +8,6 @@ import {
   setTodoList,
   addTodo,
   sortTodo,
-  updateTodo,
-  toggleTodo,
   searchTodo,
 } from "../store/todoSlice/todoSlice";
 
@@ -91,7 +89,7 @@ const App = () => {
         </button>
       </div>
 
-      <div className="flex items-center justify-between">
+      <div className="flex items-center justify-between relative">
         <FilterButton handleSort={handleSort} />
         <div className="flex items-center mb-4">
           <input
@@ -101,11 +99,9 @@ const App = () => {
             value={searchTerm}
             onChange={(e) => handleSearch(e.target.value)}
           />
-          <button
-            className="ml-4 p-2 bg-blue-500 text-white rounded hover:bg-blue-600"
-          >
+          <div className="absolute right-2 text-gray-300 text-lg">
             <FaSearch />
-          </button>
+          </div>
         </div>
       </div>
       <TodoList sortTodoList={sortTodoList} />

@@ -14,7 +14,7 @@ const todoSlice = createSlice({
       state.todoList = action.payload;
     },
     addTodo: (state, action) => {
-      state.todoList.push({
+      state.todoList.unshift({
         id: action.payload.id,
         task: action.payload.task,
         isComplete: false,

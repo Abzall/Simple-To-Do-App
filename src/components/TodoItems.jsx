@@ -1,21 +1,29 @@
-import React, { useState } from "react";
+import React, { useEffect, useRef, useState } from "react";
 import { FaPencil } from "react-icons/fa6";
 import { FaRegCheckCircle } from "react-icons/fa";
+import { FaRegCircle } from "react-icons/fa6";
 import { FaRegTrashCan } from "react-icons/fa6";
 import {
-  addTodo,
   setTodoList,
   toggleTodo,
   updateTodo,
 } from "../store/todoSlice/todoSlice";
 import { useDispatch, useSelector } from "react-redux";
 
-const TodoItems = ({ item }) => {
+const TodoItems = ({ item, index }) => {
   const [input, setInput] = useState(item.task);
   const [showModal, setShowModal] = useState(false);
   const todoList = useSelector((state) => state.todo.todoList);
   const [currentTodo, setCurrentTodo] = useState(null);
   const dispatch = useDispatch();
+
+  const inputRef = useRef()
+
+  useEffect(() => {
+    if(showModal) {
+        inputRef.current.focus()
+    }
+  }, [showModal])
 
   const handleUpdateTodoList = (id, task) => {
     if (task.trim().length === 0) {
@@ -38,7 +46,7 @@ const TodoItems = ({ item }) => {
   };
 
   const handleToggleTodo = (id) => {
-    dispatch(toggleTodo({id}));
+    dispatch(toggleTodo({ id }));
   };
 
   return (
@@ -50,6 +58,7 @@ const TodoItems = ({ item }) => {
               className="flex-grow p-2 border-b-2 w-full italic border-gray-300 focus:outline-none focus:border-blue-500"
               type="text"
               placeholder="Undate your task..."
+              ref={inputRef}
               value={input}
               onChange={(e) => setInput(e.target.value)}
             />
@@ -75,22 +84,33 @@ const TodoItems = ({ item }) => {
       )}
       <li className="flex flex-col sm:flex-row sm:items-center justify-between border-b-2 py-2 gap-4">
         <div className="flex items-center">
-          <span className="mr-4 text-gray-500">1</span>
-          <span className="mr-4">{item.task}</span>
-        </div>
-        <div className="space-x-3 ml-8">
+          <span className="mr-1 text-gray-500">{index + 1}</span>
           <button
-            className="text-sm bg-blue-500 text-white sm:px-2 py-2 rounded hover:bg-blue-600"
+            className={
+              item.isComplete
+                ? "text-md text-green-600 mr-1 sm:px-2 py2 hover:text-green-700"
+                : "text-md text-blue-600 mr-1 sm:px-2 py-2 hover:text-blue-700"
+            }
             onClick={() => handleToggleTodo(item.id)}
           >
-            <FaRegCheckCircle />
+            {item.isComplete ? <FaRegCheckCircle /> : <FaRegCircle size={15} />}
           </button>
+          <span
+            className={
+              item.isComplete
+                ? "mr-4 line-through capitalize text-green-700"
+                : "mr-4 capitalize"
+            }
+          >
+            {item.task}
+          </span>
+        </div>
+        <div className="space-x-3 ml-8">
           <button
             className="text-sm bg-blue-500 text-white sm:px-2 py-2 rounded hover:bg-blue-600"
             onClick={() => {
               setShowModal(true);
               setCurrentTodo(item);
-              // setNewTask(item.task);
             }}
           >
             <FaPencil />
@@ -103,42 +123,6 @@ const TodoItems = ({ item }) => {
           </button>
         </div>
       </li>
-
-      {/* <li className="flex flex-col sm:flex-row sm:items-center justify-between border-b-2 py-2 gap-4">
-        <div className="flex items-center">
-          <span className="mr-4 text-gray-500">1</span>
-          <span className="mr-4">Text</span>
-        </div>
-        <div className="space-x-3 ml-8">
-          <button className="text-sm bg-blue-500 text-white sm:px-2 py-2 rounded hover:bg-blue-600">
-            <FaPencil />
-          </button>
-          <button className="mr-2 text-sm bg-blue-500 text-white sm:px-2 py-2 rounded hover:bg-blue-600">
-            <FaRegCheckCircle />
-          </button>
-          <button className="mr-2 text-sm bg-red-500 text-white sm:px-2 py-2 rounded hover:bg-red-600">
-            <FaRegTrashCan />
-          </button>
-        </div>
-      </li> */}
-
-      {/* <li className="flex flex-col sm:flex-row sm:items-center justify-between border-b-2 py-2 gap-4">
-        <div className="flex items-center">
-          <span className="mr-4 text-gray-500">1</span>
-          <span className="mr-4">Text</span>
-        </div>
-        <div className="space-x-3 ml-8">
-          <button className="text-sm bg-blue-500 text-white sm:px-2 py-2 rounded hover:bg-blue-600">
-            <FaPencil />
-          </button>
-          <button className="mr-2 text-sm bg-blue-500 text-white sm:px-2 py-2 rounded hover:bg-blue-600">
-            <FaRegCheckCircle />
-          </button>
-          <button className="mr-2 text-sm bg-red-500 text-white sm:px-2 py-2 rounded hover:bg-red-600">
-            <FaRegTrashCan />
-          </button>
-        </div>
-      </li> */}
     </>
   );
 };
