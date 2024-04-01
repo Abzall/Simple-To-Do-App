@@ -1,4 +1,4 @@
-import React, { useEffect, useState } from "react";
+import React, { useEffect, useRef, useState } from "react";
 import { FaPlus } from "react-icons/fa";
 import { FaSearch } from "react-icons/fa";
 import FilterButton from "./FilterButton";
@@ -18,6 +18,12 @@ const App = () => {
   const todoList = useSelector((state) => state.todo.todoList); // Без todo попробуй. Попробуй изменить name.
   const filteredTodoList = useSelector((state) => state.todo.filteredTodoList);
   const sortCriteria = useSelector((state) => state.todo.sortCriteria);
+
+  const inputRef = useRef();
+
+  useEffect(() => {
+    inputRef.current.focus();
+  }, []);
 
   useEffect(() => {
     if (todoList.length > 0) {
@@ -78,6 +84,7 @@ const App = () => {
           className="flex-grow p-2 border-b-2 italic border-gray-300 focus:outline-none focus:border-blue-500"
           type="text"
           placeholder="Enter Your Text..."
+          ref={inputRef}
           value={newTask}
           onChange={(e) => setNewTask(e.target.value)}
         />
