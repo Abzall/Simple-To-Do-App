@@ -1,8 +1,35 @@
-# React + Vite
+---
 
-This template provides a minimal setup to get React working in Vite with HMR and some ESLint rules.
+# Simple To-Do App
 
-Currently, two official plugins are available:
+**Simple To-Do App** - это простое веб-приложение для управления задачами (списком дел). Пользователи могут добавлять, редактировать и удалять задачи. Приложение разработано с использованием следующих технологий:
 
-- [@vitejs/plugin-react](https://github.com/vitejs/vite-plugin-react/blob/main/packages/plugin-react/README.md) uses [Babel](https://babeljs.io/) for Fast Refresh
-- [@vitejs/plugin-react-swc](https://github.com/vitejs/vite-plugin-react-swc) uses [SWC](https://swc.rs/) for Fast Refresh
+- **React**
+- **Vite**
+- **Tailwind Css**
+- **Redux Toolkit**
+- **localStorage**
+
+## Функциональность
+
+1. **Добавление задач**:
+   - Пользователи могут вводить новые задачи и добавлять их в список.
+
+2. **Редактирование задач**:
+   - Задачи можно отмечать как выполненные или редактировать их описание.
+
+3. **Удаление задач**:
+   - Пользователи могут удалять задачи из списка.
+  
+4.  **Сортировка задач:**
+   - Задачи можно сортировать по критериям статуса.
+
+5.  **Поиск задач:**
+   - Пользователи могут осуществлять поиск задач по названиям.
+
+6. **Сохранение данных**:
+   - Данные о задачах сохраняются в **localStorage**.
+
+## Использование
+
+Для запуска приложения перейдите по ссылке: [Simple To-Do App](https://abzall.github.io/Simple-To-Do-App/).
